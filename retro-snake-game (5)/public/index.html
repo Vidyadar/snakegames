@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retro Snake - Farcaster Mini App</title>
+    
+    <!-- Updated Farcaster Mini App Meta Tags with dynamic URL -->
+    <meta property="fc:miniapp" content='{"version":"1","imageUrl":"/snake-preview.jpg","button":{"title":"Play Snake","action":{"type":"launch_frame","url":"/","name":"Retro Snake","splashImageUrl":"/snake-splash.jpg","splashBackgroundColor":"#000000"}}}'>
+    
+    <!-- Standard Meta Tags -->
+    <meta property="og:title" content="Retro Snake - Farcaster Mini App">
+    <meta property="og:description" content="Classic Snake game optimized for mobile play in Farcaster">
+    <meta property="og:image" content="/snake-preview.jpg">
+    
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app">
+        <div id="game-container">
+            <header class="game-header">
+                <h1>🐍 RETRO SNAKE</h1>
+                <div class="score-display">
+                    <div class="score-item">
+                        <span class="label">SCORE</span>
+                        <span id="current-score">0</span>
+                    </div>
+                    <div class="score-item">
+                        <span class="label">HIGH</span>
+                        <span id="high-score">0</span>
+                    </div>
+                </div>
+            </header>
+
+            <div id="game-area">
+                <canvas id="game-canvas" width="300" height="300"></canvas>
+                
+                <!-- Mobile Controls -->
+                <div id="mobile-controls">
+                    <div class="control-row">
+                        <button class="control-btn" data-direction="up">↑</button>
+                    </div>
+                    <div class="control-row">
+                        <button class="control-btn" data-direction="left">←</button>
+                        <button class="control-btn" data-direction="down">↓</button>
+                        <button class="control-btn" data-direction="right">→</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="game-menu" class="screen">
+                <h2>Ready to Play?</h2>
+                <p>Eat food to grow and score points!</p>
+                <button id="start-btn" class="game-btn">START GAME</button>
+            </div>
+
+            <div id="game-over" class="screen hidden">
+                <h2>Game Over!</h2>
+                <p>Final Score: <span id="final-score">0</span></p>
+                <p id="high-score-msg" class="hidden">🎉 New High Score!</p>
+                <div class="button-group">
+                    <button id="play-again-btn" class="game-btn">PLAY AGAIN</button>
+                    <button id="menu-btn" class="game-btn secondary">MENU</button>
+                </div>
+            </div>
+
+            <div id="leaderboard">
+                <h3>🏆 Leaderboard</h3>
+                <div id="leaderboard-list">
+                    <div class="loading">Loading...</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/@farcaster/miniapp-sdk@0.1.0/dist/index.js"></script>
+    <script src="game.js"></script>
+</body>
+</html>
